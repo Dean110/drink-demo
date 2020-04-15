@@ -39,6 +39,14 @@ public class Drink{
         mixers.add(mixer);
     }
 
+    public Set<Liquor> getLiquors() {
+        return liquors;
+    }
+
+    public Set<Mixer> getMixers() {
+        return mixers;
+    }
+
     public Long getId() {
         return id;
     }

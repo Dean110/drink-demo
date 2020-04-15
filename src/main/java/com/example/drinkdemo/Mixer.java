@@ -15,6 +15,7 @@ public class Mixer{
     private Long id;
     @ManyToMany(mappedBy = "mixers")
     private Set<Drink> drinks;
+    private boolean inStock;
 
     protected Mixer(){}
 
@@ -47,5 +48,16 @@ public class Mixer{
     @Override
     public int hashCode() {
         return Objects.hash(name, id);
+    }
+
+    public void restock() {
+        inStock = true;
+    }
+    public void markOutOfStock(){
+        inStock = false;
+    }
+
+    public boolean isInStock() {
+        return inStock;
     }
 }

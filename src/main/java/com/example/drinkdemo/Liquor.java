@@ -16,10 +16,12 @@ public class Liquor{
     private Long id;
     @ManyToMany(mappedBy = "liquors")
     private Set<Drink> drinks;
+    private boolean inStock;
 
     protected Liquor(){}
 
     public Liquor(String name) {
+        inStock = false;
         this.name = name;
         drinks = new HashSet<>();
     }
@@ -36,6 +38,15 @@ public class Liquor{
         return drinks;
     }
 
+    public void restock() {
+        inStock = true;
+    }
+    public void markOutOfStock(){
+        inStock = false;
+    }
+    public boolean isInStock(){
+        return inStock;
+    }
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
@@ -49,4 +60,6 @@ public class Liquor{
     public int hashCode() {
         return Objects.hash(name, id);
     }
+
+
 }
